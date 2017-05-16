@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans" rel="stylesheet">
+  </head>
+  <body>
+      <h1 class="front-header">The Wall</h1>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <p class="error">{{message}}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <div class="login">
+      <h2>Log In!</h2>
+      <form action='/login' method="POST">
+        <label for="email">Email: </label>
+        <input type="text" name="email">
+        <label for="password">Password: </label>
+        <input type="password" name="password">
+        <input type="submit" class="button1" value="Log in">
+      </form>
+    </div>
+    <div class="login">
+      <h2>Register!</h2>
+      <form action='/register' method="POST">
+        <label for="first_name">First Name: </label>
+        <input type="text" name="first_name">
+        <label for="last_name">Last Name: </label>
+        <input type="text" name="last_name">
+        <label for="email">Email: </label>
+        <input type="text" name="email">
+        <label for="password">Password: </label>
+        <input type="password" name="password">
+        <label for="confirm_password">Confirm: </label>
+        <input type="password" name="confirm_password">
+        <input type="submit" class="button2" value="Register">
+      </form>
+    </div>
+  </body>
+</html>

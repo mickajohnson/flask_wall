@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>The Wall</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans" rel="stylesheet">
+  </head>
+  <body>
+    <div class="header">
+      <h3>The Wall</h3>
+      <h4>Welcome {{session['name']}}</h4>
+      <a href="/logout">Log Out</a>
+    </div>
+    <div class="container">
+      {% with flashes = get_flashed_messages() %}
+        {% if flashes %}
+          {% for flash in flashes %}
+            <p class="error">{{flash}}</p>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      <h2>Post a Message</h2>
+      <form action='/message' method='POST'>
+        <textarea name="message"></textarea>
+        <input type="submit" class="button1" Value="Post Message">
+      </form>
+      <hr>
+      <h2>Messages</h2>
+      {% if messages %}
+        {% for message in messages %}
+          <div class="message">
+            <h3>{{message["first_name"]}} {{message["last_name"]}} - {{message["created_at"]}}</h3>
+            <p class="text">{{message["message"]}}</p>
+            {% if message['users_id'] == session['id'] and (message['DIFF'] < 1800) %}
+              <a href="/delete/message/{{message['id']}}" class="delete">Delete Message</a>
+            {% endif %}
+            <div class="comments">
+              {% if comments %}
+                {% for comment in comments %}
+                  {% if message['id'] == comment['id'] %}
+                    <div class="comment">
+                      <h4>{{comment["first_name"]}} {{comment["last_name"]}} - {{comment["created_at"]}}</h4>
+                      <p class="text">{{comment['comment']}}</p>
+                      {% if comment['users_id'] == session['id']%}
+                        <a href="/delete/comment/{{comment['comments_id']}}" class="delete">Delete Comment</a>
+                      {% endif %}
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+              <h3>Post a Comment</h3>
+              <form action='/comment' method='POST'>
+                <input type="hidden" name="comment_parent" value="{{message['id']}}">
+                <textarea name="comment"></textarea>
+                <input type="submit" class="button2" Value="Post Comment">
+              </form>
+            </div>
+          </div>
+
+        {% endfor %}
+      {% endif %}
+    </div>
+  </body>
+</html>

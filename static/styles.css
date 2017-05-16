@@ -1,0 +1,101 @@
+body{
+  color: #141414;
+}
+input {
+  display: block;
+  margin: 10px 0px;
+}
+ .error{
+   color: #b30000;
+ }
+
+ label, p, input, a{
+  font-family: 'Open Sans', sans-serif;
+ }
+
+ h1, h2, h3, h4{
+   font-family: 'Lato', sans-serif;
+ }
+
+ .front-header{
+  width: 90%;
+  margin: 0 auto;
+  border: 3px solid #b1b1b1;
+  padding: 1em;
+  text-align: center;
+ }
+
+.login{
+  border: 3px solid #b1b1b1;
+  width: 40%;
+  display: block;
+  vertical-align: top;
+  margin: 1% auto;
+  padding: 0em 0em 1em 1em;
+}
+
+.header{
+  width: 100%;
+  border: 3px solid #b1b1b1;
+  padding: 5px;
+}
+
+.header h3, .header h4, .header a{
+  display: inline-block;
+  vertical-align: center;
+}
+
+.header h3{
+  margin-right: 65%;
+}
+
+.header h4{
+  margin-right: 8%
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+textarea {
+  width: 100%;
+  height: 10em;
+}
+
+.delete{
+  color: #b30000;
+}
+
+.comments textarea{
+  width: 100%;
+  height: 4em;
+}
+
+.comments {
+  margin-left: 5%
+}
+
+.text{
+  white-space: pre;
+}
+
+.button1{
+  background: linear-gradient(#90e1f0,#20c3e1);
+  box-shadow: 2px 2px 2px black;
+  border-radius: 1px;
+  border: 1px solid #8b8b8b;
+  padding: 2px 10px;
+  color: white;
+  font-size: 1em
+}
+
+.button2{
+  background: linear-gradient(#318469,#2a715a);;
+  box-shadow: 2px 2px 2px black;
+  border-radius: 1px;
+  border: 1px solid #8b8b8b;
+  padding: 2px 10px;
+  color: white;
+  font-size: 1em
+}
